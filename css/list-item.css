@@ -1,0 +1,74 @@
+span {
+  margin: 0;
+  padding: 0;
+}
+
+.ListItem_bg {
+  border-radius: 10px;
+  padding: 4px 15px;
+  width: 350px;
+  -webkit-box-shadow: 0 5px 10px rgba(43, 38, 38, 0.2);
+          box-shadow: 0 5px 10px rgba(43, 38, 38, 0.2);
+  margin-bottom: 20px;
+}
+
+.ListItem_mark {
+  display: block;
+  width: 100px;
+  text-align: center;
+  padding: 5px 3px;
+  border-radius: 5px;
+}
+
+.ListItem_mark_red {
+  color: #f02828;
+  background: #fed4d5;
+}
+
+.ListItem_mark_blue {
+  color: #3b2bf0;
+  background: #dfdbfe;
+}
+
+.ListItem_mark_green {
+  color: #16cf83;
+  background: #d8f6ea;
+}
+
+.ListItem_title {
+  font-size: 22px;
+}
+
+.ListItem_date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-right: 20px;
+  padding-bottom: 5px;
+  font-size: 17px;
+}
+
+p {
+  margin: 0;
+  padding-right: 20px;
+  padding-bottom: 5px;
+  font-size: 17px;
+}
+
+.ListItem_person {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 5px;
+  font-size: 17px;
+}
+
+.ListItem_circle {
+  display: block;
+  width: 25px;
+  height: 25px;
+  background: lightgray;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+/*# sourceMappingURL=list-item.css.map */

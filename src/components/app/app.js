@@ -1,20 +1,28 @@
 import React, {Component} from 'react';
-import AppHeader from '../app-header';
-import ToDoList from '../to-do-list';
-import InProgressList from '../in-progress-list';
-import DoneList from '../done-list'
-import './app.css'
+import AppHeader from '../appHeader';
+import TaskCard from '../taskCard';
+//import ToDoList from '../toDoList';
+import InProgressList from '../inProgressList';
+//import DoneList from '../doneList'
+import './app.sass'
 export default class App extends Component {
+    
     render() {
     return (
-        <div className='app'>
-            <AppHeader/>
-                <div className="flex">
-                    <ToDoList/>
+        <>
+        
+        <TaskCard/> 
+            <div className='app'>
+                <AppHeader/>
+                    <div className="flex">
                     <InProgressList/>
-                    <DoneList/>
-                </div>
-        </div>
+                    
+                        {/* <ToDoList/>
+                    
+                        <DoneList/>*/}
+                    </div>
+            </div>
+        </>
     )
 }
 }

@@ -1,0 +1,18 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.app {
+  margin: 0 auto;
+  max-width: 1170px;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+/*# sourceMappingURL=app.css.map */

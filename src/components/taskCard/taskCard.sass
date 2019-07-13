@@ -1,0 +1,56 @@
+.task
+    &-bg
+        width: 100%
+        height: 2000px
+        overflow: hidden
+        position: fixed        
+        background-color: rgba(black,0.5)
+    &-wrap
+        position: fixed
+        top: 50%
+        left: 50%
+        transform: translateX(-50%) translateY(-50%)
+        width: 400px
+        height: 250px
+        background: white
+        padding: 15px
+        border-radius: 5px
+        box-shadow: 0 5px 10px rgba(43, 38, 38, 0.2)
+        h4
+            margin: 0
+            margin-bottom: 10px
+    &-input
+        font-size: 15px
+        width: 100%
+        display: block
+        margin-bottom: 20px
+        border: none
+        border-bottom: 1px solid black
+        &_title
+            font-size: 20px
+    &-submit
+        color: #16cf83
+        font-size: 15px
+        font-weight: 600
+        background: #d8f6ea
+        border: none
+        border-radius: 5px
+        padding: 5px 20px
+    &-header
+        display: flex
+        justify-content: space-between
+    &-close
+        outline: none
+        padding: 0
+        background: none
+        cursor: pointer
+        border: none
+        font-size: 25px
+        transition: 0.3s
+        &:hover
+            transform: scale(1.2)
+            color: red
+
+
+
+

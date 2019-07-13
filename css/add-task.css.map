@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAC;EACF,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,SAAS;EACrB,OAAO,EAAE,GAAG;EACZ,aAAa,EAAE,GAAG;CAGO;;AAFxB,AAAD,YAAQ,CAAC;EACL,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,IAAI;CAAG",
+    "sources": [
+        "../src/components/add-task/add-task.sass"
+    ],
+    "names": [],
+    "file": "add-task.css"
+}

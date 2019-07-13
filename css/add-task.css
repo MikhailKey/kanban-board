@@ -1,0 +1,13 @@
+.plus {
+  width: 40px;
+  height: auto;
+  background: lightgrey;
+  padding: 6px;
+  border-radius: 50%;
+}
+
+.plus-button {
+  border: none;
+  background: none;
+}
+/*# sourceMappingURL=add-task.css.map */

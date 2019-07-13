@@ -1,0 +1,28 @@
+{
+    "tasks": [
+        {
+            "statusColor": "red",
+            "label": "сделать уроки",
+            "start": "12.06", 
+            "finish": "12.10", 
+            "person": "Иванов И.И.", 
+            "id": 1
+        },
+        {
+            "statusColor": "blue",
+            "label": "Пойти на прогулку",
+            "start": "14.06", 
+            "finish": "14.06", 
+            "person": "Иванов И.И.", 
+            "id": 2
+        },
+        {
+            "statusColor": "green",
+            "label": "поспать",
+            "start": "12.06", 
+            "finish": "12.10", 
+            "person": "Иванов И.И", 
+            "id": 3
+        }
+    ]
+}
