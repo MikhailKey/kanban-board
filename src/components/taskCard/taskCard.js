@@ -3,20 +3,22 @@ import './taskCard.sass'
 import {connect} from 'react-redux';
 import {taskClosed, newTaskAdded} from '../../actions';
 class TaskCard extends Component {
-    
-    onAddTask(e) {
-        console.log(e.target.value)
-    }
-    onAddStart(e) {
-        console.log(e.target.value)
-    }
-    onAddFinish(e) {
-        console.log(e.target.value)
-    }
-    
-    
+
     render() {
     const {isOpened, taskClosed, newTaskAdded} = this.props;
+    let task = '';
+    let start = '';
+    let finish =  '';
+    const onAddTask = (e) => {
+        return task = e.target.value;
+    }
+    const onAddStart = (e) => {
+        return start = e.target.value;
+    }
+    const onAddFinish = (e) => {
+        return finish = e.target.value;
+    }
+    
     let content = (
         <div className="task-bg">
             <div className="task-wrap">
@@ -24,12 +26,12 @@ class TaskCard extends Component {
                 <h4>Название</h4>
                 <button onClick={() => taskClosed()} className="task-close">&times;</button>
                 </div>
-                {/*<form>*/}
-                    <input onChange = {(e) => this.onAddTask(e)} className="task-input task-input_title"  type="text" placeholder="Введите задание"></input>
-                    <input className="task-input" type="text" placeholder="Введите дату начала"></input>
-                    <input className="task-input" type="text" placeholder="Введите дату окончания"></input>
-                    <button type="text" onClick={() => newTaskAdded('Попытать счастье', '6.06', '7.08')} className="task-submit">Готово</button>
-                {/*</form>*/}
+                <form>
+                    <input onChange = {(e) => onAddTask(e)} className="task-input task-input_title"  type="text" placeholder="Введите задание"></input>
+                    <input onChange = {(e) => onAddStart(e)} className="task-input" type="text" placeholder="Введите дату начала"></input>
+                    <input onChange = {(e) => onAddFinish(e)} className="task-input" type="text" placeholder="Введите дату окончания"></input>
+                    <button type="text" onClick={() => newTaskAdded(task, start, finish)} className="task-submit">Готово</button>
+                </form>
             </div>
         </div>
     )
@@ -46,6 +48,9 @@ class TaskCard extends Component {
 const mapStateToProps = (state) => {
     return {    
     isOpened: state.isOpened,
+    task: state.task,
+    start: state.start,
+    finish: state.finish,
     }
 }
 const mapDispatchToProps = {

@@ -4,6 +4,9 @@ const initialState = {
     error: false,
     loading: true,
     isOpened: false,
+    task: '',
+    start: '',
+    finish: '',
 }
 
 const reducer = (state = initialState, action) => {
