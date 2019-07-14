@@ -27,10 +27,23 @@ class TaskCard extends Component {
                 <button onClick={() => taskClosed()} className="task-close">&times;</button>
                 </div>
                 <form>
-                    <input onChange = {(e) => onAddTask(e)} className="task-input task-input_title"  type="text" placeholder="Введите задание"></input>
-                    <input onChange = {(e) => onAddStart(e)} className="task-input" type="text" placeholder="Введите дату начала"></input>
-                    <input onChange = {(e) => onAddFinish(e)} className="task-input" type="text" placeholder="Введите дату окончания"></input>
-                    <button type="text" onClick={() => newTaskAdded(task, start, finish)} className="task-submit">Готово</button>
+                    <input 
+                        onChange = {(e) => onAddTask(e)} 
+                        className="task-input task-input_title"  
+                        type="text" 
+                        placeholder="Введите задание"></input>
+                    <input 
+                        onChange = {(e) => onAddStart(e)} 
+                        className="task-input" type="text" 
+                        placeholder="Введите дату начала"></input>
+                    <input 
+                        onChange = {(e) => onAddFinish(e)} 
+                        className="task-input" type="text" 
+                        placeholder="Введите дату окончания"></input>
+                    <button 
+                        type="text" 
+                        onClick={() => newTaskAdded(task, start, finish)} 
+                        className="task-submit">Готово</button>
                 </form>
             </div>
         </div>

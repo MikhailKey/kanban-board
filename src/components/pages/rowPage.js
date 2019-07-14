@@ -1,6 +1,5 @@
 import React, {Component} from 'react'; 
 import {connect} from 'react-redux';
-import WithCoffeeService from '../hoc';
 import Spinner from '../spinner';
 import ErrorMessage from '../errorMessage';
 import idGenerator from "react-id-generator";
@@ -8,12 +7,6 @@ import {allTasksLoaded, allTasksError} from '../../actions';
 import './rowPage.sass'
 import RowItem from '../rowItem';
 class RowPage extends Component {
-    componentDidMount() {
-        const {KanbanService} = this.props;
-        KanbanService.getAllTasks()
-        .then(res => this.props.allTasksLoaded(res)) 
-        .catch(res => this.props.allTasksError(res));
-    }
     render() {
         const {allTasks, loading, error} = this.props;
         if (loading) {
@@ -51,4 +44,4 @@ const mapDispatchToProps =  {
     allTasksLoaded,
     allTasksError
 };
-export default WithCoffeeService()(connect(mapStateToProps, mapDispatchToProps)(RowPage));
+export default connect(mapStateToProps, mapDispatchToProps)(RowPage);

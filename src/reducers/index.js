@@ -15,7 +15,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                allTasks: action.payload
+                allTasks: action.payload,
             };
         case 'ALL_TASKS_ERROR':
             return {
@@ -43,6 +43,7 @@ const reducer = (state = initialState, action) => {
                 person: "Иванов И.И.", 
                 id: idGenerator()
             }
+            
             const newArr = [...state.allTasks, newItem]
             return {
                 ...state,
