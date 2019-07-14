@@ -1,8 +1,9 @@
+import idGenerator from "react-id-generator";
 const initialState = {
     allTasks: [],
     error: false,
     loading: true,
-    isOpened: false
+    isOpened: false,
 }
 
 const reducer = (state = initialState, action) => {
@@ -25,6 +26,26 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isOpened: true
             };
+        case 'TASK_CLOSED':
+            return {
+                ...state,
+                isOpened: false
+            }
+        case 'NEW_TASK_ADDED':
+            const newItem = {
+                statusColor: "red",
+                label: action.task,
+                start: action.start, 
+                finish: action.finish, 
+                person: "Иванов И.И.", 
+                id: idGenerator()
+            }
+            const newArr = [...state.allTasks, newItem]
+            return {
+                ...state,
+                allTasks: newArr,
+                isOpened: false
+            }
             default:
                 return state;
     }

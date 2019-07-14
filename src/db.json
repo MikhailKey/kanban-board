@@ -2,7 +2,7 @@
     "tasks": [
         {
             "statusColor": "red",
-            "label": "сделать уроки",
+            "label": "Пройти обучение",
             "start": "12.06", 
             "finish": "12.10", 
             "person": "Иванов И.И.", 
@@ -18,7 +18,7 @@
         },
         {
             "statusColor": "green",
-            "label": "поспать",
+            "label": "Поспать",
             "start": "12.06", 
             "finish": "12.10", 
             "person": "Иванов И.И", 

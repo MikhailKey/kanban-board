@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
-import AddTask from '../addTask';
+import React, {Component} from 'react'; 
 import {connect} from 'react-redux';
 import WithCoffeeService from '../hoc';
-import {allTasksLoaded, allTasksError} from '../../actions';
 import Spinner from '../spinner';
 import ErrorMessage from '../errorMessage';
-import ListItem from '../listItem';
 import idGenerator from "react-id-generator";
-class InProgressList extends Component {
+import {allTasksLoaded, allTasksError} from '../../actions';
+import './rowPage.sass'
+import RowItem from '../rowItem';
+class RowPage extends Component {
     componentDidMount() {
         const {KanbanService} = this.props;
         KanbanService.getAllTasks()
@@ -22,22 +22,24 @@ class InProgressList extends Component {
         if (error) {
             return <ErrorMessage/>
         }
-    return (
-        <div className="toDoList">
-            <h2>В процессе</h2>
-            <AddTask/>
-            {
-                allTasks.map((task) => { if (task.statusColor === 'blue') {
-                    return <ListItem key={idGenerator()} task={task}/>
-                } else {return null}}
+        return (
+            <div className = 'row-wrap'>
+                <div className = "row-properties">
+                    <div className="row-space"></div>
+                    <h4 className="row-property">Статус</h4>
+                    <h4 className="row-property">Старт</h4>
+                    <h4 className="row-property">Финиш</h4>
+                    <h4 className="row-property">Исполнитель</h4>
+                </div>
+                {
+                allTasks.map((task) => <RowItem key={idGenerator()} task={task}/>
                       
                     )  
             }
-        </div>
-    )
+            </div>
+        )
+    }
 }
-}
-
 const mapStateToProps = (state) => {
     return {
         error: state.error,
@@ -49,4 +51,4 @@ const mapDispatchToProps =  {
     allTasksLoaded,
     allTasksError
 };
-export default WithCoffeeService()(connect(mapStateToProps, mapDispatchToProps)(InProgressList));
+export default WithCoffeeService()(connect(mapStateToProps, mapDispatchToProps)(RowPage));

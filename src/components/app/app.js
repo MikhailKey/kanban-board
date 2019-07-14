@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import AppHeader from '../appHeader';
 import TaskCard from '../taskCard';
-//import ToDoList from '../toDoList';
-import InProgressList from '../inProgressList';
-//import DoneList from '../doneList'
+import {TablePage, RowPage} from '../pages';
+import {Switch, Route} from 'react-router-dom';
 import './app.sass'
 export default class App extends Component {
     
@@ -14,13 +13,10 @@ export default class App extends Component {
         <TaskCard/> 
             <div className='app'>
                 <AppHeader/>
-                    <div className="flex">
-                    <InProgressList/>
-                    
-                        {/* <ToDoList/>
-                    
-                        <DoneList/>*/}
-                    </div>
+                <Switch>
+                    <Route path='/' exact component={TablePage}/> 
+                    <Route path='/list/' exact component={RowPage}/>  
+                </Switch>
             </div>
         </>
     )

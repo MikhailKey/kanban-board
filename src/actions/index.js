@@ -15,9 +15,24 @@ const taskOpened = () => {
         type: 'TASK_OPENED'
     }
 }
+const taskClosed = () => {
+    return {
+        type: 'TASK_CLOSED'
+    }
+}
+const newTaskAdded = (task, start, finish) => {
+    return {
+        type: 'NEW_TASK_ADDED',
+        task: task,
+        start: start,
+        finish: finish,
+    }
+}
 
 export {
     allTasksLoaded,
     taskOpened,
-    allTasksError
+    allTasksError,
+    taskClosed,
+    newTaskAdded,
 }

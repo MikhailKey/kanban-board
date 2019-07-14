@@ -1,25 +1,52 @@
-import React from 'react';
+import React, {Component} from 'react';
 import AddTask from '../addTask';
+import {connect} from 'react-redux';
+import WithCoffeeService from '../hoc';
+import {allTasksLoaded, allTasksError} from '../../actions';
+import Spinner from '../spinner';
+import ErrorMessage from '../errorMessage';
 import ListItem from '../listItem';
-const DoneList = ({posts}) => {
-    const elements = posts.map((item) => {
-        if (typeof(item) === 'object' && item.statusColor === 'green') {
-            const {id, ...itemProps} = item;
-         return (
-             <div key={id}>
-             <ListItem {...itemProps}/>
-             </div>
-         )
+import idGenerator from "react-id-generator";
+class DoneList extends Component {
+    componentDidMount() {
+        const {KanbanService} = this.props;
+        KanbanService.getAllTasks()
+        .then(res => this.props.allTasksLoaded(res)) 
+        .catch(res => this.props.allTasksError(res));
+    }
+    render() {
+        const {allTasks, loading, error} = this.props;
+        if (loading) {
+            return <Spinner/>
         }
-    })  
+        if (error) {
+            return <ErrorMessage/>
+        }
     return (
         <div className="toDoList">
-            <h1>Сделано</h1>
-            <AddTask />
-            {elements}
-        
+            <h2>Сделано</h2>
+            <AddTask/>
+            {
+                allTasks.map((task) => { if (task.statusColor === 'green') {
+                    return <ListItem key={idGenerator()} task={task}/>
+                } else {return null}}
+                      
+                    )  
+            }
         </div>
     )
 }
+}
 
-export default DoneList
+const mapStateToProps = (state) => {
+    return {
+        error: state.error,
+        allTasks: state.allTasks,
+        loading: state.loading,
+    }
+}
+const mapDispatchToProps =  {
+    allTasksLoaded,
+    allTasksError
+};
+export default WithCoffeeService()(connect(mapStateToProps, mapDispatchToProps)(DoneList));

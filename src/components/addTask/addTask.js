@@ -17,9 +17,7 @@ const mapStateToProps = (state) => {
         isOpened: state.isOpened
     }
 }
-const mapDispatchToProps = () => {
-   return {
+const mapDispatchToProps =  {
     taskOpened
-   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AddTask);

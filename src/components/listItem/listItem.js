@@ -4,9 +4,9 @@ import './listItem.sass'
 const ListItem = ({task}) => {
     
     const {statusColor, label, start, finish, person} = task;
-    const redStatus = <h3 className="ListItem_mark ListItem_mark_red">Срочно</h3>;
-    const blueStatus = <h3 className="ListItem_mark ListItem_mark_blue">В работе</h3>;
-    const greenStatus = <h3 className="ListItem_mark ListItem_mark_green">Готово</h3>;
+    const redStatus = <h4 className="ListItem_mark ListItem_mark_red">Срочно</h4>;
+    const blueStatus = <h4 className="ListItem_mark ListItem_mark_blue">В работе</h4>;
+    const greenStatus = <h4 className="ListItem_mark ListItem_mark_green">Готово</h4>;
     let itemStatus = '';
     switch (statusColor) {
         case 'red':
