@@ -1,7 +1,7 @@
 import React  from 'react';
 import './listItem.sass'
 
-const ListItem = ({task}) => {
+const ListItem = ({task, onTaskDeleted}) => {
     
     const {statusColor, label, start, finish, person} = task;
     const redStatus = <h4 className="ListItem_mark ListItem_mark_red">Срочно</h4>;
@@ -23,8 +23,12 @@ const ListItem = ({task}) => {
         break;
     }
     return (
-        <div className="ListItem_bg">
+        <>
+        <div className="ListItem_bg" draggable="true">
+        <div className="task-header">
             {itemStatus}
+            <button onClick={() => onTaskDeleted()} className="task-close">&times;</button>
+                </div>
             <h2 className="ListItem_title">{label}</h2>
                 <div className="ListItem_date">
                     <p>Старт: {start}</p><p>Финиш: {finish}</p>
@@ -35,6 +39,7 @@ const ListItem = ({task}) => {
                     <p>{person}</p>
                 </div>
         </div>
+        </>
     )
 }
 

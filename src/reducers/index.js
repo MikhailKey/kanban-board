@@ -4,9 +4,6 @@ const initialState = {
     error: false,
     loading: true,
     isOpened: false,
-    task: '',
-    start: '',
-    finish: '',
 }
 
 const reducer = (state = initialState, action) => {
@@ -43,12 +40,22 @@ const reducer = (state = initialState, action) => {
                 person: "Иванов И.И.", 
                 id: idGenerator()
             }
-            
             const newArr = [...state.allTasks, newItem]
             return {
                 ...state,
                 allTasks: newArr,
                 isOpened: false
+            }
+        case 'TASK_DELETED':
+            const itemName = action.name;
+            console.log(itemName)
+            const itemIndex = state.allTasks.findIndex(item => item.label === itemName);
+            return {
+                ...state,
+                allTasks: [
+                    ...state.allTasks.slice(0, itemIndex), 
+                    ...state.allTasks.slice(itemIndex+1)
+                ]
             }
             default:
                 return state;

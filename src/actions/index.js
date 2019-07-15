@@ -28,6 +28,12 @@ const newTaskAdded = (task, start, finish) => {
         finish: finish,
     }
 }
+const taskDeleted = (name) => {
+    return {
+        type: 'TASK_DELETED',
+        name: name,
+    }
+}
 
 export {
     allTasksLoaded,
@@ -35,4 +41,5 @@ export {
     allTasksError,
     taskClosed,
     newTaskAdded,
+    taskDeleted
 }

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import AddTask from '../addTask';
 import {connect} from 'react-redux';
 import WithCoffeeService from '../hoc';
-import {allTasksLoaded, allTasksError} from '../../actions';
+import {allTasksLoaded, allTasksError, taskDeleted} from '../../actions';
 import Spinner from '../spinner';
 import ErrorMessage from '../errorMessage';
 import ListItem from '../listItem';
@@ -15,7 +15,7 @@ class InProgressList extends Component {
         .catch(res => this.props.allTasksError(res));
     }
     render() {
-        const {allTasks, loading, error} = this.props;
+        const {allTasks, loading, error, taskDeleted} = this.props;
         if (loading) {
             return <Spinner/>
         }
@@ -28,7 +28,7 @@ class InProgressList extends Component {
             <AddTask/>
             {
                 allTasks.map((task) => { if (task.statusColor === 'blue') {
-                    return <ListItem key={idGenerator()} task={task}/>
+                    return <ListItem key={idGenerator()} task={task} onTaskDeleted={() => taskDeleted(task.label)}/>
                 } else {return null}}
                       
                     )  
@@ -47,6 +47,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps =  {
     allTasksLoaded,
-    allTasksError
+    allTasksError,
+    taskDeleted
 };
 export default WithCoffeeService()(connect(mapStateToProps, mapDispatchToProps)(InProgressList));
